@@ -1,0 +1,12 @@
+[package]
+name = "maputils"
+version = "0.1.0"
+authors = ["Markus Unterwaditzer <markus@unterwaditzer.net>"]
+license = "MIT"
+keywords = ["hashmap", "btreemap", "maps", "map"]
+readme = "README.md"
+
+description = "Various utilities for dealing with maps."
+documentation = "http://rust-maputils.unterwaditzer.net/"
+homepage = "http://rust-maputils.unterwaditzer.net/"
+repository = "https://github.com/untitaker/rust-maputils"
