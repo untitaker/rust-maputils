@@ -1,7 +1,10 @@
-#![feature(hashmap_hasher)]
+#![cfg_attr(feature = "clippy", allow(unstable_features))]
+#![cfg_attr(feature = "clippy", feature(plugin))]
+#![cfg_attr(feature = "clippy", plugin(clippy))]
+#![cfg_attr(feature = "clippy", deny(warnings))]
 
 use std::borrow::Borrow;
-use std::hash::Hash;
+use std::hash::{BuildHasher,Hash};
 use std::collections;
 
 pub trait MapLike<'a, K: 'a, V: 'a> {
@@ -17,8 +20,7 @@ pub trait MapLike<'a, K: 'a, V: 'a> {
 }
 
 impl<'a, K: 'a, V: 'a, S> MapLike<'a, K, V> for collections::HashMap<K, V, S>
-where S: collections::hash_state::HashState,
-      K: Hash + Eq {
+where S: BuildHasher, K: Hash + Eq {
     type Iter = collections::hash_map::Iter<'a, K, V>;
 
     fn get<Q: ?Sized>(&'a self, k: &Q)

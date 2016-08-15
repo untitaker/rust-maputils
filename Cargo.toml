@@ -10,3 +10,6 @@ description = "Various utilities for dealing with maps."
 documentation = "http://rust-maputils.unterwaditzer.net/"
 homepage = "http://rust-maputils.unterwaditzer.net/"
 repository = "https://github.com/untitaker/rust-maputils"
+
+[dependencies]
+clippy = {git = "https://github.com/Manishearth/rust-clippy", version = "*", optional = true}
